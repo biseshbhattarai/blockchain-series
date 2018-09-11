@@ -35,7 +35,23 @@ class BlockChain{
         newBlock.hash = newBlock.calculateHash();
         this.chain.push(newBlock)
     }
+
+    checkhash(){
+    
+            for (let i = 1 ; i < this.chain.length ; i++){
+                const current_ch = this.chain[i]
+                const previous_c = this.chain[i-1]
+                if(current_ch.hash !== current_ch.calculateHash() || current_ch.previousHash !== previous_c.hash){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+    
+    }
 }
+
+
 
 //Create a instance
 let biscoin = new BlockChain();
@@ -47,3 +63,4 @@ array.forEach(a => {
 // biscoin.addBlock(new Block(1, "30/04/2007", {amount : 1233}))
 // biscoin.addBlock(new Block(2, "23/06/2075", {amount : 444}))
 console.log(JSON.stringify(biscoin, null, 4 ))
+console.log("Is blockchain valid? " + biscoin.checkhash());
