@@ -39,6 +39,11 @@ class BlockChain{
 
 //Create a instance
 let biscoin = new BlockChain();
-biscoin.addBlock(new Block(1, "30/04/2007", {amount : 1233}))
-biscoin.addBlock(new Block(2, "23/06/2075", {amount : 444}))
+array = [(1, "30/04/2007", {amount : 1233}),(2, "23/06/2075", {amount : 444}),(3, "21/05/2075", {amount : 222})]
+array.forEach(a => {
+    biscoin.addBlock(new Block(a))
+
+})
+// biscoin.addBlock(new Block(1, "30/04/2007", {amount : 1233}))
+// biscoin.addBlock(new Block(2, "23/06/2075", {amount : 444}))
 console.log(JSON.stringify(biscoin, null, 4 ))
